@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './Person/Person.css'
 import Person from './Person/Person'
 
 class App extends Component {
@@ -32,11 +33,21 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgrondColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px'
+    };
+
     return (
       <div className="App">
         <h1>Hi This is the react app</h1>
         <p>I will be strat writing my first react code in this file</p>
-        <button onClick={this.switchNameHandler.bind(this,'Jessie')}>Switch Name</button>
+        {/* only method define under 'state' can be accessed by 'this' */}
+        <button onClick={this.switchNameHandler.bind(this,'Jessie')} style={style}>
+          Switch Name
+        </button>
         <Person 
           name={this.state.person[0].name} 
           age={this.state.person[0].age} 
