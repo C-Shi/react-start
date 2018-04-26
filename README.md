@@ -7,4 +7,4 @@ use 'StyleRoot' from Radium to use advanced CSS feature
 
 conofig webpack.config.dev/prod
 modules: true,
-localIdenName: '[name__[local]__[hash:base65:5]'
+localIdenName: '[name__[local]__[hash:base64:5]'
