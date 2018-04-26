@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 import './Person/Person.css';
-import Radium, {StyleRoot} from 'radium'
 import Person from './Person/Person';
 
 class App extends Component {
@@ -91,19 +90,19 @@ class App extends Component {
     }
 
     // manipulate CSS style 
-    const classes = []
+    const assignedClass = []
     if (this.state.person.length <= 2){
-      classes.push('red');
+      assignedClass.push( classes.red);
     };
     if (this.state.person.length <= 1) {
-      classes.push('bold');
+      assignedClass.push( classes.bold);
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
+  
+        <div className={assignedClass.App}>
           <h1>Hi This is the react app</h1>
-          <p className={classes.join(' ')}>I will be strat writing my first react code in this file</p>
+          <p className={assignedClass.join(' ')}>I will be strat writing my first react code in this file</p>
           {/* only method define under 'state' can be accessed by 'this' */}
 
           <button onClick={this.toggleHandler} style={style}>
@@ -111,7 +110,7 @@ class App extends Component {
           </button>
           {person}
         </div>
-      </StyleRoot>
+
     )
     // );
     // return React.createElement('div', {className:'App'}, React.createElement('h1', null, "Does this work?"));
@@ -119,4 +118,4 @@ class App extends Component {
 }
 
 // a higher order component, radium allows us to use sudo selector and media query CSS 
-export default Radium(App);
+export default App;
