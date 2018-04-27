@@ -52,24 +52,26 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgrondColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      // radium support all sudo selector but need to be a string state
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color:'color'
-      }
-    };
+    // const style = {
+    //   backgrondColor: 'white',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   // radium support all sudo selector but need to be a string state
+    //   ':hover': {
+    //     backgroundColor: 'lightgreen',
+    //     color:'color'
+    //   }
+    // };
 
     
-    style['hover'] = {
-      backgrondColor: 'salmon',
-      color: 'black'
-    }
+    // style['hover'] = {
+    //   backgrondColor: 'salmon',
+    //   color: 'black'
+    // }
 
+    let btnClass = '';
+  
     let person = null;
 
     if (this.state.showPerson) {
@@ -86,7 +88,9 @@ class App extends Component {
             })}
           </div>
         );
+        btnClass = classes.Red
       }
+     
     }
 
     // manipulate CSS style 
@@ -105,7 +109,7 @@ class App extends Component {
           <p className={assignedClass.join(' ')}>I will be strat writing my first react code in this file</p>
           {/* only method define under 'state' can be accessed by 'this' */}
 
-          <button onClick={this.toggleHandler} style={style}>
+          <button onClick={this.toggleHandler} className={btnClass} className={classes.button}>
             Toggle Name
           </button>
           {person}
