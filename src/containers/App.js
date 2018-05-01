@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import classes from './App.css';
-import './Person/Person.css';
-import Person from './Person/Person';
+import logo from '../logo.svg';
+import classes from '../containers/App.css';
+import '../components/People/Person/Person.css';
+import Person from '../components/People/Person/Person';
+import People from '../components/People/People';
 
 class App extends Component {
   state = {
@@ -74,24 +75,19 @@ class App extends Component {
   
     let person = null;
 
-    if (this.state.showPerson) {
-      if ( this.state.showPerson ) {
-        person = (
-          <div>
-            {this.state.person.map((person, index) => {
-              return <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name} 
-                age={person.age}
-                key={person.id}
-                change={(event) => this.nameChangedHandler(event, person.id)} />
-            })}
-          </div>
-        );
-        btnClass = classes.Red
-      }
-     
+  
+    if ( this.state.showPerson ) {
+      person = (
+      <div>
+        <People 
+            clicked = {this. deletePersonHandler}
+            changed = {this.nameChangedHandler}
+            people = {this.state.person}/>
+      </div>
+      )
+      btnClass = classes.Red
     }
+     
 
     // manipulate CSS style 
     const assignedClass = []
