@@ -4,6 +4,7 @@ import classes from '../containers/App.css';
 import '../components/People/Person/Person.css';
 import Person from '../components/People/Person/Person';
 import People from '../components/People/People';
+import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
   state = {
@@ -53,69 +54,36 @@ class App extends Component {
   }
 
   render() {
-    // const style = {
-    //   backgrondColor: 'white',
-    //   font: 'inherit',
-    //   border: '1px solid blue',
-    //   padding: '8px',
-    //   // radium support all sudo selector but need to be a string state
-    //   ':hover': {
-    //     backgroundColor: 'lightgreen',
-    //     color:'color'
-    //   }
-    // };
-
     
-    // style['hover'] = {
-    //   backgrondColor: 'salmon',
-    //   color: 'black'
-    // }
-
-    let btnClass = '';
+    
   
     let person = null;
 
-  
-    if ( this.state.showPerson ) {
+    if (this.state.showPerson ) {
       person = (
       <div>
         <People 
             clicked = {this. deletePersonHandler}
             changed = {this.nameChangedHandler}
-            people = {this.state.person}/>
+            people = {this.state.person}
+            showPerson = {this.state.showPerson}/>
       </div>
       )
-      btnClass = classes.Red
+    
     }
-     
 
-    // manipulate CSS style 
-    const assignedClass = []
-    if (this.state.person.length <= 2){
-      assignedClass.push( classes.red);
-    };
-    if (this.state.person.length <= 1) {
-      assignedClass.push( classes.bold);
-    }
 
     return (
-  
-        <div className={assignedClass.App}>
-          <h1>Hi This is the react app</h1>
-          <p className={assignedClass.join(' ')}>I will be strat writing my first react code in this file</p>
-          {/* only method define under 'state' can be accessed by 'this' */}
-
-          <button onClick={this.toggleHandler} className={btnClass} className={classes.button}>
-            Toggle Name
-          </button>
-          {person}
-        </div>
-
+      <div className={classes.App}>
+        <Cockpit 
+          showPerson = {this.state.showPerson}
+          person = {this.state.person}
+          click = {this.toggleHandler}
+          />
+        {person}
+      </div>
     )
-    // );
-    // return React.createElement('div', {className:'App'}, React.createElement('h1', null, "Does this work?"));
   }
 }
 
-// a higher order component, radium allows us to use sudo selector and media query CSS 
 export default App;
