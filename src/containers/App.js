@@ -54,9 +54,6 @@ class App extends Component {
   }
 
   render() {
-    
-    
-  
     let person = null;
 
     if (this.state.showPerson ) {
@@ -69,9 +66,7 @@ class App extends Component {
             showPerson = {this.state.showPerson}/>
       </div>
       )
-    
     }
-
 
     return (
       <div className={classes.App}>
